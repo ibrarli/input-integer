@@ -2,9 +2,10 @@
   "name": "input-integer",
   "version": "0.0.0",
   "description": "ui component",
-  "main": "src/index",
+  "main": "src/index.js",
   "scripts": {
-    "start": "budo demo/demo.js:bundle.js --live --open",
+    "start": "budo src/demo/demo.js:bundle.js --live --open",
+    "build": "browserify src/demo/demo.js > bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/ibrarli/input-integer#readme",
   "devDependencies": {
+    "browserify": "^17.0.1",
     "budo": "^11.8.4"
   }
 }
