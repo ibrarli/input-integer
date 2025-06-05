@@ -4,6 +4,7 @@
   "description": "ui component",
   "main": "src/index",
   "scripts": {
+    "start": "budo demo/demo.js:bundle.js --live --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
