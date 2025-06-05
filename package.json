@@ -1,0 +1,25 @@
+{
+  "name": "input-integer",
+  "version": "0.0.0",
+  "description": "ui component",
+  "main": "src/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibrarli/input-integer.git"
+  },
+  "keywords": [
+    "slider"
+  ],
+  "author": "ali",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ibrarli/input-integer/issues"
+  },
+  "homepage": "https://github.com/ibrarli/input-integer#readme",
+  "devDependencies": {
+    "budo": "^11.8.4"
+  }
+}
