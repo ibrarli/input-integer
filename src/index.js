@@ -1,11 +1,24 @@
 module.exports = inputInteger;
 
+//CSS Styling
 const sheet = new CSSStyleSheet();
 const theme = get_theme();
 sheet.replaceSync(theme);
 
+// main function
 function inputInteger(opts) {
   const { min, max } = opts;
+
+  const name = `input-integer-${id++}`;
+
+  const notify = protocol({ from: name }, listen);
+
+  function listen(message) {
+    const { type, data } = message;
+    if (type === "update") {
+      input.value = data;
+    }
+  }
 
   const el = document.createElement("div");
   const shadow = el.attachShadow({ mode: "closed" });
@@ -21,7 +34,7 @@ function inputInteger(opts) {
   shadow.append(input);
 
   shadow.adoptedStyleSheets = [sheet];
-  
+
   return el;
 }
 
@@ -63,7 +76,6 @@ function get_theme() {
 }
 
 function handle_onkeyup(e, input, min, max) {
-  console.log(e.target.value);
 
   const val = Number(e.target.value);
   const val_len = val.toString().length;
@@ -74,6 +86,8 @@ function handle_onkeyup(e, input, min, max) {
   } else if (val_len === min_len && min > val) {
     input.value = min;
   }
+
+  notify({ from: name, type: "update", data: val });
 }
 
 function handle_onmouseleave_and_blur(e, input, min) {
