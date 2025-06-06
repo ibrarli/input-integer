@@ -6,11 +6,11 @@ const theme = get_theme();
 sheet.replaceSync(theme);
 
 // main function
-function inputInteger(opts) {
+function inputInteger(opts, protocol) {
   const { min, max, id = 0 } = opts;
-  const name = `input-integer-${id}`;
 
-  const notify = protocol({ from: name }, listen);
+  const name = `input-integer-${id}`;
+  const notify = protocol({ from: name }, listen); // ✅ Now works
 
   function listen(message) {
     const { type, data } = message;
