@@ -7,9 +7,8 @@ sheet.replaceSync(theme);
 
 // main function
 function inputInteger(opts) {
-  const { min, max } = opts;
-
-  const name = `input-integer-${id++}`;
+  const { min, max, id = 0 } = opts;
+  const name = `input-integer-${id}`;
 
   const notify = protocol({ from: name }, listen);
 
@@ -76,7 +75,6 @@ function get_theme() {
 }
 
 function handle_onkeyup(e, input, min, max) {
-
   const val = Number(e.target.value);
   const val_len = val.toString().length;
   const min_len = min.toString().length;
