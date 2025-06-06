@@ -1,8 +1,10 @@
 const inputInteger = require("..");
 
-const input1 = inputInteger();
-const input2 = inputInteger();
+const opt1 = { min: 1, max: 150 };
+const opt2 = { min: 1900, max: 2025 };
 
+const input1 = inputInteger(opt1);
+const input2 = inputInteger(opt2);
 
 const title = "my demo form";
 const subtitle = "please fill out the form";
@@ -19,4 +21,3 @@ page.innerHTML = `
 document.body.append(page);
 page.querySelector("x").replaceWith(input1);
 page.querySelector("y").replaceWith(input2);
-

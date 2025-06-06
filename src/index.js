@@ -4,14 +4,18 @@ const sheet = new CSSStyleSheet();
 const theme = get_theme();
 sheet.replaceSync(theme);
 
-function inputInteger() {
+function inputInteger(opts) {
+  const { min, max } = opts;
+
   const el = document.createElement("div");
   const shadow = el.attachShadow({ mode: "closed" });
   const input = document.createElement("input");
   input.type = "number";
-  input.min = 0;
-  input.max = 10;
-  input.onkeyup = (e) => handle_onkeyup(e, input);
+  input.min = min;
+  input.max = max;
+  input.onkeyup = (e) => handle_onkeyup(e, input, min, max);
+  input.onmouseleave = (e) => handle_onmouseleave_and_blur(e, input, min);
+  input.onblur = (e) => handle_onmouseleave_and_blur(e, input, min);
 
   shadow.append(input);
 
@@ -32,14 +36,24 @@ function get_theme() {
     `;
 }
 
-function handle_onkeyup(e, input) {
+function handle_onkeyup(e, input, min, max) {
   console.log(e.target.value);
+
+  const val = Number(e.target.value);
+  const val_len = val.toString().length;
+  const min_len = min.toString().length;
+
+  if (max < val) {
+    input.value = max;
+  } else if (val_len === min_len && min > val) {
+    input.value = min;
+  }
+}
+
+function handle_onmouseleave_and_blur(e, input, min) {
   const val = Number(e.target.value);
 
-  if (input.max < val) {
-    input.value = 150;
-  }
-  else if (input.min > val){
-    input.value = 0;
+  if (min > val) {
+    input.value = "";
   }
 }
