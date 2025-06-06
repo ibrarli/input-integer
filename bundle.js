@@ -51,15 +51,39 @@ function inputInteger(opts) {
 
 function get_theme() {
   return `
-        input {
-            padding: 4px 10px;
-            background-color: hsla(284, 45%, 54%, 1);
-            border-radius: 20px;
-        }
-        input:focus {
-        background-color: red;
-        }
-    `;
+    input {
+      padding: 10px 16px;
+      background-color: hsla(284, 45%, 54%, 1);
+      border: none;
+      border-radius: 25px;
+      color: #ffffff;
+      font-size: 15px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      outline: none;
+      width: 100%;
+      max-width: 300px;
+      transition: 
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+    }
+
+    input::placeholder {
+      color: #f0e6f6;
+      opacity: 0.9;
+    }
+
+    input:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      transform: translateY(-1px);
+    }
+
+    input:focus {
+      background-color: #d843d0;
+      box-shadow: 0 0 0 3px rgba(216, 67, 208, 0.3);
+    }
+  `;
 }
 
 function handle_onkeyup(e, input, min, max) {
