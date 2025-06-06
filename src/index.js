@@ -10,6 +10,7 @@ function inputInteger(opts) {
   const el = document.createElement("div");
   const shadow = el.attachShadow({ mode: "closed" });
   const input = document.createElement("input");
+
   input.type = "number";
   input.min = min;
   input.max = max;
@@ -20,6 +21,7 @@ function inputInteger(opts) {
   shadow.append(input);
 
   shadow.adoptedStyleSheets = [sheet];
+  
   return el;
 }
 
