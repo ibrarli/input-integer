@@ -1,4 +1,4 @@
-const inputInteger = require("..");
+const inputInteger = require("input-integer-apen");
 
 const opt1 = { min: 1, max: 150 };
 const opt2 = { min: 1900, max: 2025 };

@@ -1,6 +1,6 @@
 {
   "name": "input-integer-apen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ui component",
   "main": "src/index.js",
   "scripts": {
@@ -24,5 +24,8 @@
   "devDependencies": {
     "browserify": "^17.0.1",
     "budo": "^11.8.4"
+  },
+  "dependencies": {
+    "input-integer-apen": "^0.0.1"
   }
 }
