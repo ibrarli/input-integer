@@ -1,4 +1,4 @@
-const inputInteger = require("input-integer-apen")
+const inputInteger = require("..")
 
 const sheet = new CSSStyleSheet()
 const theme = get_theme()
