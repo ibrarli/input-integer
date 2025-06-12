@@ -4,8 +4,8 @@
   "description": "ui component",
   "main": "src/index.js",
   "scripts": {
-    "start": "budo src/demo/demo.js:bundle.js --live --open",
-    "build": "browserify src/demo/demo.js > bundle.js",
+    "start": "budo demo/demo.js:bundle.js --live --open",
+    "build": "browserify demo/demo.js > bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "budo": "^11.8.4"
   },
   "dependencies": {
-    "input-integer-apen": "^0.0.1"
+    "input-integer-apen": "^0.0.1",
+    "node": "^24.2.0"
   }
 }
