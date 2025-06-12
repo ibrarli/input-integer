@@ -1,20 +1,20 @@
-const inputInteger = require("input-integer-apen");
+const inputInteger = require("input-integer-apen")
 
-const sheet = new CSSStyleSheet();
-const theme = get_theme();
-sheet.replaceSync(theme);
+const sheet = new CSSStyleSheet()
+const theme = get_theme()
+sheet.replaceSync(theme)
 
-const opt1 = { min: 1, max: 150 };
-const opt2 = { min: 1900, max: 2025 };
+const opt1 = { min: 1, max: 150 }
+const opt2 = { min: 1900, max: 2025 }
 
-const input1 = inputInteger(opt1);
-const input2 = inputInteger(opt2);
+const input1 = inputInteger(opt1)
+const input2 = inputInteger(opt2)
 
-const title = "my demo form";
-const subtitle = "please fill out the form";
+const title = "my demo form"
+const subtitle = "please fill out the form"
 
-const page = document.createElement("div");
-const shadow = page.attachShadow({ mode: "closed" });
+const page = document.createElement("div")
+const shadow = page.attachShadow({ mode: "closed" })
 
 shadow.innerHTML = `
     <div class="form-container">   
@@ -27,12 +27,12 @@ shadow.innerHTML = `
     </div>
     `;
 
-shadow.querySelector("x").replaceWith(input1);
-shadow.querySelector("y").replaceWith(input2);
+shadow.querySelector("x").replaceWith(input1)
+shadow.querySelector("y").replaceWith(input2)
 
-shadow.adoptedStyleSheets = [sheet];
+shadow.adoptedStyleSheets = [sheet]
 
-document.body.append(page);
+document.body.append(page)
 
 function get_theme() {
   return `
