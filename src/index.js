@@ -9,7 +9,7 @@ var id = 0;
 
 // main function
 function inputInteger(opts, protocol) {
-  const { min, max, id = 0 } = opts
+  const { min = 0, max = 1000} = opts
 
   const name = `input-integer-${id++}`
 
@@ -23,10 +23,10 @@ function inputInteger(opts, protocol) {
   }
 
   const el = document.createElement("div")
-  const shadow = el.attachShadow({ mode: "closed" })
-  const input = document.createElement("input")
+  const shadow = el.attachShadow({ mode: 'closed' })
+  const input = document.createElement('input')
 
-  input.type = "number"
+  input.type = 'number'
   input.min = min
   input.max = max
   input.onkeyup = (e) => handle_onkeyup(e, input, min, max)
@@ -50,14 +50,14 @@ function inputInteger(opts, protocol) {
       input.value = min
     }
 
-    notify({ from: name, type: "update", data: val })
+    notify({ from: name, type: 'update', data: val })
   }
 
   function handle_onmouseleave_and_blur(e, input, min) {
-    const val = Number(e.target.value);
+    const val = Number(e.target.value)
 
     if (min > val) {
-      input.value = ""
+      input.value = ' '
     }
   }
 }
