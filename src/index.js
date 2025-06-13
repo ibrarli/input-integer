@@ -44,22 +44,27 @@ function inputInteger(opts, protocol) {
     const val_len = val.toString().length
     const min_len = min.toString().length
 
+    if (Number.isNaN(val)) return
+
     if (max < val) {
       input.value = max
+      notify({ from: name, type: 'update', data: max })
     } else if (val_len === min_len && min > val) {
       input.value = min
+      notify({ from: name, type: 'update', data: min })
+    } else {
+      notify({ from: name, type: 'update', data: val })
     }
-
-    notify({ from: name, type: 'update', data: val })
   }
 
   function handle_onmouseleave_and_blur(e, input, min) {
     const val = Number(e.target.value)
-
-    if (min > val) {
-      input.value = ' '
+    if (Number.isNaN(val) || val < min) {
+      input.value = min
+      notify({ from: name, type: 'update', data: min })
     }
   }
+
 }
 
 function get_theme() {
