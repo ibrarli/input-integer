@@ -114,7 +114,7 @@ function inputInteger(opts, protocol) {
 
   const el = document.createElement("div")
   const shadow = el.attachShadow({ mode: 'closed' })
-  const input = document.createElement('input')
+  let input = document.createElement('input')
 
   input.type = 'number'
   input.min = min
