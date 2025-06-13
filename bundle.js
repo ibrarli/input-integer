@@ -5,11 +5,16 @@ const sheet = new CSSStyleSheet()
 const theme = get_theme()
 sheet.replaceSync(theme)
 
+function protocol(sender, listen) {
+  return (message) => {
+    listen(message)
+  }
+}
 const opt1 = { min: 1, max: 150 }
 const opt2 = { min: 1900, max: 2025 }
 
-const input1 = inputInteger(opt1)
-const input2 = inputInteger(opt2)
+const input1 = inputInteger(opt1, protocol)
+const input2 = inputInteger(opt2, protocol)
 
 const title = "my demo form"
 const subtitle = "please fill out the form"
